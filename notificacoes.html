@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Notificações</title>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <header>
+          <div class="logo">
+                    <!--colocar a logo aqui-->
+          </div>
+
+          <div class="title-notf">
+               <h1>Notificações</h1>
+          </div>
+     </header>
+
+     <div class="notf">
+          <table id="main-table">
+               <thead>
+                    <th style="color: black">Tipo</th>
+                    <th style="color: black">Descrição</th>
+                    <th style="color: black">Data de Vencimento</th>
+                    <th style="color: black">Valor</th>
+                    <th style="color: black">Urgencia</th>
+               </thead>
+          </table>
+
+          <script>
+               var table = document.getElementById("main-table");
+               var maxRows = 15;
+
+               function addrow(type, desc, venc, value, urg){
+
+               if (table.rows.length <= maxRows) {
+                    var row = table.insertRow();
+                    
+                    var cell1 = row.insertCell(0);
+                    cell1.innerHTML = "<div>" + type + "</div>";
+
+                    var cell2 = row.insertCell(1);
+                    cell2.innerHTML = "<div>" + desc + "</div>";
+
+                    var cell3 = row.insertCell(2);
+                    cell3.innerHTML = "<div>" + venc + "</div>";
+
+                    var cell4 = row.insertCell(3);
+                    cell4.innerHTML = "<div>" + value + "</div>";
+
+                    var cell5 = row.insertCell(4);
+                    cell5.innerHTML = "<div>" + urg + "</div>";
+               } else {
+                    console.log("Limite de linhas alcançado!");
+               }
+               }
+
+               addrow("cobrança", "inss", "18-02-2024", "450.00", "alta");
+               addrow("pagamento", "água", "20-02-2024", "100.00", "média");
+               addrow("outro", "eletricidade", "22-02-2024", "200.00", "baixa");
+               addrow();
+
+          </script>
+     </div>
+
+</body>
+</html>
